@@ -88,6 +88,10 @@ void loop() {
       }
       Serial.println("");
       data_amount = 0;
+      A_speed = data[1];
+      B_speed = data[2];
+      C_speed = data[3];
+      D_speed = data[4];
     }
   }
   // Command handling
@@ -99,29 +103,29 @@ void loop() {
 
     case FORWARD:     // Forward
       ABCD_DIR(HIGH, HIGH, HIGH, HIGH);
-      A_speed = Amax_speed;
-      B_speed = Bmax_speed;
-      C_speed = Cmax_speed;
-      D_speed = Dmax_speed;
+//      A_speed = Amax_speed;
+//      B_speed = Bmax_speed;
+//      C_speed = Cmax_speed;
+//      D_speed = Dmax_speed;
       
       ABCD_PWM(A_speed, B_speed, C_speed, D_speed);
       break;
 
     case BACKWARD:      // Backward
-      A_speed = Amax_speed;
-      B_speed = Bmax_speed;
-      C_speed = Cmax_speed;
-      D_speed = Dmax_speed;
+//      A_speed = Amax_speed;
+//      B_speed = Bmax_speed;
+//      C_speed = Cmax_speed;
+//      D_speed = Dmax_speed;
       ABCD_DIR(LOW, LOW, LOW, LOW);
       speed = max_speed;
       ABCD_PWM(A_speed, B_speed, C_speed, D_speed);
       break;
 
     case SHIFT_LEFT:      // Shift left
-      A_speed = 150;
-      B_speed = 170;
-      C_speed = 150;
-      D_speed = 150;
+//      A_speed = 150;
+//      B_speed = 170;
+//      C_speed = 150;
+//      D_speed = 150;
       ABCD_DIR(HIGH, LOW, LOW, HIGH);
       speed = max_speed;
       ABCD_PWM(A_speed, B_speed, C_speed, D_speed);
@@ -129,28 +133,28 @@ void loop() {
 
     case SHIFT_RIGHT:     // Shift right
       ABCD_DIR(LOW, HIGH, HIGH, LOW);
-      A_speed = 150;
-      B_speed = 170;
-      C_speed = 150;
-      D_speed = 150;
+//      A_speed = 150;
+//      B_speed = 170;
+//      C_speed = 150;
+//      D_speed = 150;
       ABCD_PWM(A_speed, B_speed, C_speed, D_speed);
       break;
 
     case TURN_LEFT:     // Turn left
       ABCD_DIR(LOW, HIGH, LOW, HIGH);
-      A_speed = 200;
-      B_speed = 200;
-      C_speed = 200;
-      D_speed = 200;
+//      A_speed = 200;
+//      B_speed = 200;
+//      C_speed = 200;
+//      D_speed = 200;
       ABCD_PWM(A_speed, B_speed, C_speed, D_speed);
       break;
 
     case TURN_RIGHT:     // Turn right
       ABCD_DIR(HIGH, LOW, HIGH, LOW);
-      A_speed = 200;
-      B_speed = 200;
-      C_speed = 200;
-      D_speed = 200;
+//      A_speed = 200;
+//      B_speed = 200;
+//      C_speed = 200;
+//      D_speed = 200;
       ABCD_PWM(A_speed, B_speed, C_speed, D_speed);
       break;
 
